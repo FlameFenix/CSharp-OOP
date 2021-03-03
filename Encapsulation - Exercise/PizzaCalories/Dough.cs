@@ -20,35 +20,77 @@ namespace PizzaCalories
             Weight = weight;
         }
 
-        public string FlourType 
+        private string FlourType 
         {
             get => this.flourType;
-            private set
+            set
             {
                 Validator.ValidateFlourName(value, "Invalid type of dough.");
                 this.flourType = value;
             }
         }
 
-        public string BakingTechnique 
+        private string BakingTechnique 
         {
             get => this.bakingTechnique;
-            private set
+            set
             {
                 Validator.ValidateBakingTechnique(value, "Invalid type of dough.");
                 this.bakingTechnique = value;
             }
         }
 
-        public int Weight
+        private int Weight
         {
             get => this.weight;
-            private set
+            set
             {
                 Validator.ValidateWeight(value, minValueWeight, maxValueWeight, $"Dough weight should be in the range [{minValueWeight}..{maxValueWeight}].");
                 this.weight = value;
             }
         }
 
+        public double Calories
+        {
+            get
+            {
+                return GetCalories();
+            }
+            private set
+            {
+                Calories = GetCalories();
+            }
+        }
+
+        private double GetCalories()
+        {
+            double flour = 0;
+            double bakingType = 0;
+
+            if(FlourType.ToLower() == "white")
+            {
+                flour = 1.5;
+            } 
+            else if(FlourType.ToLower() == "wholegrain")
+            {
+                flour = 1.0;
+            }
+
+            if(bakingTechnique.ToLower() == "crispy")
+            {
+                bakingType = 0.9;
+            }
+            else if(BakingTechnique.ToLower() == "chewy")
+            {
+                bakingType = 1.1;
+            }
+            else if(BakingTechnique.ToLower() == "homemade")
+            {
+                bakingType = 1.0;
+            }
+
+            double calories = (2 * this.weight) * flour * bakingType;
+            return calories;
+        }
     }
 }
