@@ -7,7 +7,5 @@ namespace Telephony
     public interface ICallable
     {
         public void Call(string number);
-
-        public string Number { get; }
     }
 }

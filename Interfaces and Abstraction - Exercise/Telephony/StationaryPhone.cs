@@ -7,8 +7,6 @@ namespace Telephony
 {
     class StationaryPhone : ICallable
     {
-        public string Number { get; private set; }
-
         public void Call(string number)
         {
             if (number.Any(x => char.IsDigit(x)))
