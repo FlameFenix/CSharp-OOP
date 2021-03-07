@@ -4,19 +4,13 @@ using System.Text;
 
 namespace BordedControl
 {
-    public class Citizens : IRobot, IPerson
+    public class Citizen : IPerson
     {
         private string name;
         private int age;
         private string id;
 
-        public Citizens(string name, string id)
-        {
-            this.Name = name;
-            this.Id = id;
-        }
-
-        public Citizens(string name, int age, string id) 
+        public Citizen(string name, int age, string id) 
         {
             this.Name = name;
             this.Age = age;

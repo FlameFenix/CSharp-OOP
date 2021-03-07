@@ -4,8 +4,8 @@ using System.Text;
 
 namespace BordedControl
 {
-    public interface IRobot : IIdentifiable
+    public interface IIdentifiable
     {
-        public string Model { get; }
+        public string Id { get; }
     }
 }

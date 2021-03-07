@@ -4,10 +4,9 @@ using System.Text;
 
 namespace BordedControl
 {
-    public interface IPerson
+    public interface IPerson : IIdentifiable
     {
         public string Name { get; }
         public int Age { get; }
-        public string Id { get; }
     }
 }

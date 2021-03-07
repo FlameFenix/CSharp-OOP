@@ -9,7 +9,8 @@ namespace BordedControl
         static void Main(string[] args)
         {
             string input = string.Empty;
-            List<Citizens> citizens = new List<Citizens>();
+
+            List<IIdentifiable> citizens = new List<IIdentifiable>();
 
             while ((input = Console.ReadLine()) != "End")
             {
@@ -20,16 +21,14 @@ namespace BordedControl
                 if (cmdArgs.Length == 2)
                 {
                     string id = cmdArgs[1];
-                    IRobot robot = new Citizens(name, id);
-                    citizens.Add((Citizens)robot);
+                    citizens.Add(new Robot(name, id));
                     
                 }
                 else if (cmdArgs.Length == 3)
                 {
                     int age = int.Parse(cmdArgs[1]);
                     string id = cmdArgs[2];
-                    IPerson person = new Citizens(name, age, id);
-                    citizens.Add((Citizens)person);
+                    citizens.Add(new Citizen(name,age, id));
                 }
             }
 
