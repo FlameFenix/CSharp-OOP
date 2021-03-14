@@ -4,7 +4,11 @@ using System.Text;
 
 namespace P02.Graphic_Editor
 {
-    public class Square : IShape
+    public class Square : GraphicEditor
     {
+        public override void DrawShape()
+        {
+            Console.WriteLine("I'm a Square");
+        }
     }
 }

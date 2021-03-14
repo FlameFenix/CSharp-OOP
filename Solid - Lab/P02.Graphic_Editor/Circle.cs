@@ -4,7 +4,11 @@ using System.Text;
 
 namespace P02.Graphic_Editor
 {
-    public class Circle : IShape
+    public class Circle : GraphicEditor
     {
+        public override void DrawShape()
+        {
+            Console.WriteLine("I'm a Circle");
+        }
     }
 }
