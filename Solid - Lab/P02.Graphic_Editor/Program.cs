@@ -6,6 +6,12 @@ namespace P02.Graphic_Editor
     {
         static void Main()
         {
+            GraphicEditor circle = new Circle();
+
+            circle.DrawShape();
+
+            GraphicEditor star = new Star();
+            star.DrawShape();
         }
     }
 }

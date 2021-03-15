@@ -4,11 +4,11 @@ using System.Text;
 
 namespace P02.Graphic_Editor
 {
-    public class Rectangle : GraphicEditor
+    public class Star : GraphicEditor
     {
         public override void DrawShape()
         {
-            Console.WriteLine("I'm a Rectangle");
+            Console.WriteLine("I'm a Star");
         }
     }
 }
