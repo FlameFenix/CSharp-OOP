@@ -4,7 +4,7 @@ using System.Text;
 
 namespace P03.DetailPrinter
 {
-    public class Employee
+    public abstract class Employee
     {
         public Employee(string name)
         {
@@ -12,5 +12,10 @@ namespace P03.DetailPrinter
         }
 
         public string Name { get; set; }
+
+        public override string ToString()
+        {
+            return $"Employee Name: {this.Name}";
+        }
     }
 }
