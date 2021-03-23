@@ -101,6 +101,13 @@ namespace Tests
         }
 
         [Test]
+        [TestCase("Pesho")]
+        public void WhenFindingPersonByUserNameAndHeDoesNotExist(string name)
+        {
+            Assert.Throws<InvalidOperationException>(() => database.FindByUsername(name));
+        }
+
+        [Test]
         [TestCase(-5)]
         public void WhenFindingPersonByIdItShouldBePositiveNumber(long id)
         {
@@ -132,28 +139,6 @@ namespace Tests
         {
             ExtendedDatabase database = new ExtendedDatabase(new Person(10, "Pesho"), new Person(11, "Stoqn"));
             Assert.That(database.Count == 2);
-        }
-
-        [Test]
-        public void ValidatePersonCountIsSixteenOverConstructor()
-        {
-            Assert.Throws<ArgumentException>(() => database = new ExtendedDatabase(new Person(1, "Pesho"),
-                                                              new Person(2, "Pesho"),
-                                                              new Person(3, "Pesho"),
-                                                              new Person(4, "Pesho"),
-                                                              new Person(5, "Pesho"),
-                                                              new Person(6, "Pesho"),
-                                                              new Person(7, "Pesho"),
-                                                              new Person(8, "Pesho"),
-                                                              new Person(9, "Pesho"),
-                                                              new Person(10, "Pesho"),
-                                                              new Person(11, "Pesho"),
-                                                              new Person(12, "Pesho"),
-                                                              new Person(13, "Pesho"),
-                                                              new Person(14, "Pesho"),
-                                                              new Person(15, "Pesho"),
-                                                              new Person(16, "Pesho"),
-                                                              new Person(17, "Pesho")));
         }
 
         [Test]
